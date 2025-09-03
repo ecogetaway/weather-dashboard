@@ -1,0 +1,373 @@
+/* Weather Dashboard App Styles - Mobile-first approach */
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app-title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Sections */
+.search-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.recent-searches-section {
+  width: 100%;
+}
+
+.weather-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.forecast-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Component Styling */
+.search-bar {
+  width: 100%;
+}
+
+.recent-searches {
+  width: 100%;
+}
+
+.weather-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+.forecast-list {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Empty State */
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.empty-state-content {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: var(--spacing-2xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.empty-state-title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state-description {
+  font-size: var(--text-base);
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Footer */
+.app-footer {
+  margin-top: auto;
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: var(--spacing-md);
+}
+
+.footer-text {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.temperature-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.temperature-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.temperature-toggle:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.temperature-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Tablet Layout (768px+) */
+@media (min-width: 768px) {
+  .app-container {
+    padding: var(--spacing-xl);
+    gap: var(--spacing-2xl);
+  }
+
+  .app-title {
+    font-size: 3.5rem;
+  }
+
+  .app-subtitle {
+    font-size: var(--text-xl);
+  }
+
+  .search-section {
+    max-width: 700px;
+  }
+
+  .weather-card {
+    max-width: 600px;
+  }
+
+  .forecast-list {
+    max-width: 900px;
+  }
+
+  .empty-state-content {
+    padding: var(--spacing-2xl) 3rem;
+  }
+
+  .footer-content {
+    max-width: 800px;
+  }
+}
+
+/* Desktop Layout (1024px+) */
+@media (min-width: 1024px) {
+  .app-container {
+    padding: var(--spacing-2xl);
+  }
+
+  .app-main {
+    gap: 2.5rem;
+  }
+
+  .search-section {
+    max-width: 800px;
+  }
+
+  .weather-section,
+  .forecast-section {
+    align-items: flex-start;
+  }
+
+  /* Side-by-side layout for weather and forecast on large screens */
+  .weather-forecast-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+  }
+}
+
+/* Large Desktop Layout (1280px+) */
+@media (min-width: 1280px) {
+  .app-container {
+    max-width: 1400px;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .empty-state-content {
+    background-color: rgba(45, 55, 72, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .empty-state-title {
+    color: #ffffff;
+  }
+
+  .empty-state-description {
+    color: #a0aec0;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .app-title,
+  .app-subtitle,
+  .footer-text {
+    text-shadow: none;
+  }
+
+  .temperature-toggle {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
+  }
+
+  .empty-state-content {
+    border-color: #000000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .temperature-toggle {
+    transition: none;
+  }
+
+  .temperature-toggle:hover,
+  .temperature-toggle:active {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: #ffffff;
+  }
+
+  .app-header,
+  .app-footer {
+    display: none;
+  }
+
+  .temperature-toggle {
+    display: none;
+  }
+
+  .empty-state-content {
+    box-shadow: none;
+    border: 1px solid #000000;
+  }
+}
+
+/* Loading states */
+.app-main[data-loading="true"] {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Animation for content transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weather-section,
+.forecast-section,
+.recent-searches-section {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Focus management for accessibility */
+.app:focus-within .search-bar {
+  z-index: 10;
+}
+
+/* Responsive text scaling */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: var(--text-2xl);
+  }
+
+  .app-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+}

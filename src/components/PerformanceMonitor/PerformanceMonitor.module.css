@@ -1,0 +1,329 @@
+/* PerformanceMonitor component styles */
+.performanceMonitor {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.toggleButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.panel {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 320px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.content {
+  padding: 16px;
+}
+
+.scoreSection {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scoreValue {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.scoreGrade {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.metricLabel {
+  font-size: 10px;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.metricValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.recommendations {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.recommendationsTitle {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recommendationsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recommendation {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.recommendation::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #d1d5db;
+}
+
+.recommendation:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .performanceMonitor {
+    top: 10px;
+    right: 10px;
+  }
+
+  .panel {
+    width: 280px;
+    right: -10px;
+  }
+
+  .toggleButton {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .metric {
+    padding: 6px;
+  }
+
+  .metricValue {
+    font-size: 12px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .panel {
+    width: calc(100vw - 40px);
+    right: -10px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .panel {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .header {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .title {
+    color: #f9fafb;
+  }
+
+  .closeButton {
+    color: #9ca3af;
+  }
+
+  .closeButton:hover {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  .scoreGrade {
+    color: #9ca3af;
+  }
+
+  .metric {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .metricLabel {
+    color: #9ca3af;
+  }
+
+  .metricValue {
+    color: #f9fafb;
+  }
+
+  .recommendations {
+    border-color: #374151;
+  }
+
+  .recommendationsTitle {
+    color: #f9fafb;
+  }
+
+  .recommendation {
+    color: #9ca3af;
+  }
+
+  .recommendation::before {
+    color: #6b7280;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .panel {
+    border-width: 2px;
+  }
+
+  .toggleButton {
+    border-width: 3px;
+  }
+
+  .metric {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .toggleButton {
+    transition: none;
+  }
+
+  .toggleButton:hover {
+    transform: none;
+  }
+
+  .closeButton {
+    transition: none;
+  }
+}

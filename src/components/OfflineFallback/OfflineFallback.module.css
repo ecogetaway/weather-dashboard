@@ -1,0 +1,259 @@
+/* OfflineFallback component styles */
+.fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: var(--color-gray-50);
+  border: 2px dashed var(--color-gray-300);
+  border-radius: 12px;
+  margin: 1rem 0;
+  min-height: 200px;
+}
+
+.fallback.withCachedData {
+  background: var(--color-blue-50);
+  border-color: var(--color-blue-300);
+}
+
+.fallback.noCachedData {
+  background: var(--color-red-50);
+  border-color: var(--color-red-300);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+}
+
+.icon {
+  font-size: 3rem;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.withCachedData .title {
+  color: var(--color-blue-900);
+}
+
+.noCachedData .title {
+  color: var(--color-red-900);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--color-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.withCachedData .description {
+  color: var(--color-blue-800);
+}
+
+.noCachedData .description {
+  color: var(--color-red-800);
+}
+
+.cacheInfo {
+  font-size: 0.8rem;
+  color: var(--color-gray-600);
+  font-style: italic;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cacheNotice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--color-blue-800);
+}
+
+.cacheIcon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.cacheText {
+  line-height: 1.4;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .fallback {
+    padding: 1.5rem 1rem;
+    margin: 0.75rem 0;
+    min-height: 160px;
+  }
+
+  .content {
+    gap: 1rem;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .cacheNotice {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Compact mode for very small screens */
+@media (max-width: 480px) {
+  .fallback {
+    padding: 1rem;
+    min-height: 140px;
+  }
+
+  .content {
+    gap: 0.75rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .cacheInfo {
+    font-size: 0.75rem;
+  }
+
+  .cacheNotice {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fallback {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+  }
+
+  .fallback.withCachedData {
+    background: var(--color-blue-900);
+    border-color: var(--color-blue-600);
+  }
+
+  .fallback.noCachedData {
+    background: var(--color-red-900);
+    border-color: var(--color-red-600);
+  }
+
+  .title {
+    color: var(--color-gray-100);
+  }
+
+  .withCachedData .title {
+    color: var(--color-blue-100);
+  }
+
+  .noCachedData .title {
+    color: var(--color-red-100);
+  }
+
+  .description {
+    color: var(--color-gray-300);
+  }
+
+  .withCachedData .description {
+    color: var(--color-blue-200);
+  }
+
+  .noCachedData .description {
+    color: var(--color-red-200);
+  }
+
+  .cacheInfo {
+    color: var(--color-gray-400);
+  }
+
+  .cacheNotice {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: var(--color-blue-200);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .fallback {
+    border-width: 3px;
+  }
+
+  .title {
+    font-weight: 700;
+  }
+
+  .cacheNotice {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fallback {
+    transition: none;
+  }
+}
+
+/* Focus management */
+.fallback:focus-within {
+  outline: 2px solid var(--color-blue-500);
+  outline-offset: 2px;
+}

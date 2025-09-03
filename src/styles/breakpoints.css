@@ -1,0 +1,57 @@
+/* Mobile-first breakpoints */
+:root {
+  /* Breakpoint values */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* Common spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+}
+
+/* Mobile-first media query mixins as CSS custom properties */
+@media (min-width: 640px) {
+  :root {
+    --is-sm: true;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --is-md: true;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --is-lg: true;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --is-xl: true;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --is-2xl: true;
+  }
+}

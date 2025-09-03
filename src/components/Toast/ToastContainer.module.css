@@ -1,0 +1,97 @@
+/* ToastContainer component styles */
+
+.container {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* Enable pointer events for toast children */
+.container > * {
+  pointer-events: auto;
+}
+
+/* Position variants */
+.topright {
+  top: 20px;
+  right: 20px;
+}
+
+.topleft {
+  top: 20px;
+  left: 20px;
+}
+
+.bottomright {
+  bottom: 20px;
+  right: 20px;
+  flex-direction: column-reverse;
+}
+
+.bottomleft {
+  bottom: 20px;
+  left: 20px;
+  flex-direction: column-reverse;
+}
+
+.topcenter {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomcenter {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column-reverse;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    left: 16px !important;
+    right: 16px !important;
+    top: 16px;
+    transform: none !important;
+    max-width: calc(100vw - 32px);
+  }
+
+  .bottomright,
+  .bottomleft,
+  .bottomcenter {
+    bottom: 16px;
+    top: auto;
+  }
+
+  .topcenter,
+  .bottomcenter {
+    left: 16px;
+    right: 16px;
+    transform: none;
+  }
+}
+
+/* Safe area support for mobile devices */
+@supports (padding: max(0px)) {
+  .container {
+    padding-top: max(20px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding-top: max(16px, env(safe-area-inset-top));
+      padding-bottom: max(16px, env(safe-area-inset-bottom));
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+  }
+}

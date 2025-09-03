@@ -1,0 +1,255 @@
+/* Toast component styles */
+
+.toast {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 480px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid var(--color-primary);
+  margin-bottom: 12px;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.toast.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.exiting {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Toast type variants */
+.toast.success {
+  border-left-color: #10b981;
+}
+
+.toast.error {
+  border-left-color: #ef4444;
+}
+
+.toast.warning {
+  border-left-color: #f59e0b;
+}
+
+.toast.info {
+  border-left-color: #3b82f6;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-gray-900);
+  margin-bottom: 4px;
+}
+
+.message {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-gray-600);
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.actionButton {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 44px; /* Mobile touch target */
+}
+
+.actionButton:hover {
+  background: var(--color-primary-dark);
+}
+
+.actionButton:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+  min-width: 44px; /* Mobile touch target */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: var(--color-gray-600);
+  background: var(--color-gray-100);
+}
+
+.closeButton:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.progressBar {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform-origin: left;
+  animation: progress linear forwards;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Success variant progress bar */
+.toast.success .progressBar {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+}
+
+/* Error variant progress bar */
+.toast.error .progressBar {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+/* Warning variant progress bar */
+.toast.warning .progressBar {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+/* Info variant progress bar */
+.toast.info .progressBar {
+  background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .toast {
+    min-width: 280px;
+    max-width: calc(100vw - 32px);
+    margin-bottom: 8px;
+  }
+
+  .content {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .message {
+    font-size: 12px;
+  }
+
+  .actionButton {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .toast {
+    background: var(--color-gray-800);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .title {
+    color: var(--color-gray-100);
+  }
+
+  .message {
+    color: var(--color-gray-300);
+  }
+
+  .closeButton {
+    color: var(--color-gray-400);
+  }
+
+  .closeButton:hover {
+    color: var(--color-gray-200);
+    background: var(--color-gray-700);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+
+  .toast.visible {
+    transform: none;
+  }
+
+  .toast.exiting {
+    transform: none;
+  }
+
+  .progressBar {
+    animation: none;
+    display: none;
+  }
+}

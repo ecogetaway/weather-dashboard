@@ -1,0 +1,457 @@
+/* RecentSearches component styles - Mobile-first approach */
+
+.container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e5e9;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #212529;
+}
+
+.count {
+  font-size: var(--text-sm);
+  color: #6c757d;
+  font-weight: 500;
+  background-color: #f8f9fa;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.loadingText {
+  color: #6c757d;
+  font-size: var(--text-base);
+  font-style: italic;
+}
+
+/* Locations Container - Mobile First (Vertical Layout) */
+.locationsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-height: 300px;
+  overflow-y: auto;
+  padding: var(--spacing-xs);
+}
+
+/* Location Item */
+.locationItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 60px; /* Ensure 44px+ touch target */
+  position: relative;
+}
+
+.locationItem:hover {
+  background-color: #e9ecef;
+  border-color: #3498db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.locationItem:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+  background-color: #e9ecef;
+}
+
+.locationItem:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Location Information */
+.locationInfo {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.locationName {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #212529;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-xs);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.locationCountry {
+  font-size: var(--text-sm);
+  color: #6c757d;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Location Actions */
+.locationActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
+}
+
+.removeButton {
+  background: none;
+  border: 1px solid #dc3545;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  min-width: 44px; /* Mobile touch target */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #dc3545;
+  position: relative;
+}
+
+.removeButton:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.removeButton:focus {
+  outline: 2px solid #dc3545;
+  outline-offset: 2px;
+}
+
+.removeButton:active {
+  transform: scale(0.95);
+}
+
+.removeIcon {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.7;
+}
+
+.emptyText {
+  color: #6c757d;
+  font-size: var(--text-base);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mobile Hint */
+.mobileHint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm);
+  color: #6c757d;
+  font-size: var(--text-xs);
+}
+
+.hintText {
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Tablet Layout (768px - 1024px) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+
+  .locationsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    max-height: 200px;
+  }
+
+  .locationItem {
+    min-height: 80px;
+  }
+
+  .removeButton {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  /* Hide mobile hint on tablet+ */
+  .mobileHint {
+    display: none;
+  }
+}
+
+/* Desktop Layout (1024px+) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 800px;
+  }
+
+  .locationsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .locationItem {
+    padding: var(--spacing-lg);
+  }
+
+  .locationName {
+    font-size: var(--text-lg);
+  }
+
+  .locationCountry {
+    font-size: var(--text-base);
+  }
+}
+
+/* Horizontal scroll layout for very small screens */
+@media (max-width: 480px) {
+  .locationsContainer {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xs);
+    scroll-snap-type: x mandatory;
+  }
+
+  .locationItem {
+    flex-shrink: 0;
+    min-width: 200px;
+    scroll-snap-align: start;
+  }
+
+  .locationName,
+  .locationCountry {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .container {
+    border-color: #000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .locationItem {
+    border-color: #000000;
+  }
+
+  .locationItem:hover,
+  .locationItem:focus {
+    background-color: #d0d0d0;
+    border-color: #000000;
+  }
+
+  .removeButton {
+    border-color: #000000;
+    color: #000000;
+  }
+
+  .removeButton:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #ffffff;
+  }
+
+  .title {
+    color: #ffffff;
+  }
+
+  .count {
+    background-color: #4a5568;
+    color: #a0aec0;
+    border-color: #718096;
+  }
+
+  .locationItem {
+    background-color: #4a5568;
+    border-color: #718096;
+  }
+
+  .locationItem:hover,
+  .locationItem:focus {
+    background-color: #718096;
+    border-color: #63b3ed;
+  }
+
+  .locationName {
+    color: #ffffff;
+  }
+
+  .locationCountry {
+    color: #a0aec0;
+  }
+
+  .removeButton {
+    border-color: #fc8181;
+    color: #fc8181;
+  }
+
+  .removeButton:hover {
+    background-color: #fc8181;
+    color: #2d3748;
+  }
+
+  .loadingText,
+  .emptyText,
+  .hintText {
+    color: #a0aec0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .locationItem,
+  .removeButton {
+    transition: none;
+  }
+
+  .locationItem:hover,
+  .removeButton:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    box-shadow: none;
+    border: 1px solid #000000;
+  }
+
+  .removeButton,
+  .mobileHint {
+    display: none;
+  }
+
+  .locationsContainer {
+    overflow: visible;
+    max-height: none;
+  }
+}
+
+/* Focus styles for better accessibility */
+.locationsContainer:focus-within .locationItem {
+  opacity: 0.7;
+}
+
+.locationsContainer:focus-within .locationItem:focus {
+  opacity: 1;
+}
+
+/* Scrollbar styling for webkit browsers */
+.locationsContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.locationsContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.locationsContainer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.locationsContainer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animation for adding/removing items */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.locationItem {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loadingText {
+  animation: pulse 1.5s ease-in-out infinite;
+}

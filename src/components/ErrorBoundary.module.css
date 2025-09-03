@@ -1,0 +1,292 @@
+/* ErrorBoundary component styles */
+
+.pageError {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef2f2 0%, #fef7f7 100%);
+  padding: 2rem;
+}
+
+.errorContainer {
+  max-width: 500px;
+  text-align: center;
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fecaca;
+}
+
+.componentError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  min-height: 120px;
+}
+
+.errorContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.errorIcon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pageError .errorIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.errorText {
+  flex: 1;
+  text-align: left;
+}
+
+.componentError .errorText {
+  text-align: center;
+}
+
+.errorTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.pageError .errorTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #991b1b;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #7f1d1d;
+  opacity: 0.9;
+}
+
+.pageError .errorMessage {
+  font-size: 1.1rem;
+  color: #7f1d1d;
+  margin-bottom: 2rem;
+}
+
+.errorActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.componentError .errorActions {
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton,
+.retryButton,
+.reloadButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px; /* Mobile touch target */
+  font-size: 0.9rem;
+  border: none;
+}
+
+.primaryButton {
+  background: #dc2626;
+  color: white;
+}
+
+.primaryButton:hover {
+  background: #b91c1c;
+}
+
+.primaryButton:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+}
+
+.secondaryButton:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.secondaryButton:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+.retryButton {
+  background: #f59e0b;
+  color: white;
+}
+
+.retryButton:hover {
+  background: #d97706;
+}
+
+.retryButton:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+.reloadButton {
+  background: #6b7280;
+  color: white;
+}
+
+.reloadButton:hover {
+  background: #4b5563;
+}
+
+.reloadButton:focus {
+  outline: 2px solid #6b7280;
+  outline-offset: 2px;
+}
+
+.errorId {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-family: monospace;
+  opacity: 0.7;
+}
+
+.pageError .errorId {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .pageError {
+    padding: 1rem;
+    min-height: 100vh;
+  }
+
+  .errorContainer {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .pageError .errorIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .pageError .errorTitle {
+    font-size: 1.5rem;
+  }
+
+  .pageError .errorMessage {
+    font-size: 1rem;
+  }
+
+  .componentError {
+    padding: 1.5rem 1rem;
+    min-height: 100px;
+  }
+
+  .errorContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .errorText {
+    text-align: center;
+  }
+
+  .errorActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .retryButton,
+  .reloadButton {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .pageError {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+
+  .errorContainer {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+
+  .componentError {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f87171;
+  }
+
+  .errorTitle {
+    color: #f87171;
+  }
+
+  .pageError .errorTitle {
+    color: #fca5a5;
+  }
+
+  .errorMessage {
+    color: #d1d5db;
+  }
+
+  .pageError .errorMessage {
+    color: #d1d5db;
+  }
+
+  .errorId {
+    color: #6b7280;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton,
+  .retryButton,
+  .reloadButton {
+    transition: none;
+  }
+}
