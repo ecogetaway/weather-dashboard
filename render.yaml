@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: weather-dashboard
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run preview
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: VITE_WEATHER_API_KEY
+        sync: false
+      - key: VITE_APP_NAME
+        value: Weather Dashboard
+      - key: VITE_ENABLE_PWA
+        value: true
+      - key: VITE_ENABLE_OFFLINE
+        value: true
